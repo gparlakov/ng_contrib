@@ -14,7 +14,7 @@ I had issues that the `build.sh` and `test.sh` would not be able to run on _Linu
 ## Step-by-step
 1. Install docker for windows and make sure it works - `docker run hello-world`
 2. Setup an empty angular folder or use the one from this repo
-3. `docker run -ti -v angular:/angular --name ng_contrib node:8 bash` this will start the standart node:8 image and run `bash` inside it also attaching as a volume the empty folder(assuming it was called `angular`) from previous step. We need that to be able to edit the code host-side 
+3. `docker run --rm -ti -v '${cwd}\\angular:/angular' --name ng_contrib node:8 bash` this will start the standart node:8 image and run `bash` inside it also attaching as a volume the empty folder(assuming it was called `angular`) from previous step. We need that to be able to edit the code host-side.
 4. `git clone https://github.com/gparlakov/angular /angular` clone our repo in /angular.  If you want to be able to make changes to it - Replace with your own fork of angular.
 5. `cd angular`
 6. `yarn install` - ready the workspace
