@@ -1,8 +1,11 @@
 # ng_contrib
 A repository for the project to clone an angular fork repo from a linux container running on Windows. Goal is to have angular build in its 'natural' environment.
 
-## Rationale
-I had issues that the `build.sh` and `test.sh` would not be able to run on _Linux subsytem for Windows_ or would get CRLF line endings when git cloned. And also I wanted to learn docker. 
+## Issue
+I had issues that the `build.sh` and `test.sh` would not be able to run on _Linux subsytem for Windows_ or would get CRLF line endings when git cloned. I also wanted to learn docker.
+
+## Goal 
+Prove that one can develop with locally installed `docker` and `vs code` and nothing more.  
 
 ## Solution
 1. Have a docker container running linux + node + yarn (as pointed out [here](https://github.com/angular/angular/blob/master/docs/DEVELOPER.md#prerequisite-software))
@@ -14,7 +17,10 @@ I had issues that the `build.sh` and `test.sh` would not be able to run on _Linu
 ## Step-by-step
 1. Install docker for windows and make sure it works - `docker run hello-world`
 2. Setup an empty angular folder or use the one from this repo
-3. `docker run --rm -ti -v '${cwd}\\angular:/angular' --name ng_contrib node:8 bash` this will start the standart node:8 image and run `bash` inside it also attaching as a volume the empty folder(assuming it was called `angular`) from previous step. We need that to be able to edit the code host-side.
+3. Run `start.cmd` 
+_OR_
+`docker run --rm -ti -v '${cwd}\\angular:/angular' --name ng_contrib node:8 bash` this will start the standart node:8 image and run `bash` inside it also attaching as a volume the empty folder(assuming it was called `angular`) from previous step. We need that to be able to edit the code host-side.
+At this point you should see the bash terminal from inside the running container `root@9e17560d156f:/#` next steps assume bash 
 4. `git clone https://github.com/gparlakov/angular /angular` clone our repo in /angular.  If you want to be able to make changes to it - Replace with your own fork of angular.
 5. `cd angular`
 6. `yarn install` - ready the workspace
