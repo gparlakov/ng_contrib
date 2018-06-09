@@ -20,7 +20,7 @@ Prove that one can develop with locally installed `docker` and `vs code` and not
 3. Run `start.cmd` 
 _OR_
 `docker run --rm -ti -v '${cwd}\\angular:/angular' --name ng_contrib node:8 bash` this will start the standart node:8 image and run `bash` inside it also attaching as a volume the empty folder(assuming it was called `angular`) from previous step. We need that to be able to edit the code host-side.
-At this point you should see the bash terminal from inside the running container `root@9e17560d156f:/#` next steps assume bash 
+At this point you should see the bash terminal from inside the running container `root@9e17560d156f:/#` next steps assume bash   
 4. `git clone https://github.com/gparlakov/angular /angular` clone our repo in /angular.  If you want to be able to make changes to it - Replace with your own fork of angular.
 5. `cd angular`
 6. `yarn install` - ready the workspace
