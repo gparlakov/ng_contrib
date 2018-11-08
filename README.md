@@ -16,10 +16,10 @@ Prove that one can develop with locally installed `docker` and `vs code` and not
 
 ## Step-by-step
 1. Install docker for windows and make sure it works - `docker run hello-world`
-2. Setup an empty angular folder or use the one from this repo
+2. Create an empty angular folder or use the one from this repo
 3. Run `go.cmd` 
 _OR_
-`docker run --rm -ti -v '${cwd}\angular:/angular' --name ng_contrib node:8 bash` this will start the standart node:8 image and run `bash` inside it also attaching as a volume the empty folder(assuming it was called `angular`) from previous step. We need that to be able to edit the code host-side.
+`docker run --rm -ti -v '%CD%\angular:/angular' --name ng_contrib node:10 bash` this will start the standart node:10 image and run `bash` inside it also attaching as a volume the empty folder(assuming it was called `angular` and is being run on windows - %CD%) from previous step. We need that to be able to edit the code host-side.
 At this point you should see the bash terminal from inside the running container `root@9e17560d156f:/#` next steps assume bash   
 4. `git clone https://github.com/gparlakov/angular /angular` clone our repo in /angular.  If you want to be able to make changes to it - Replace with your own fork of angular.
 5. `cd angular`
@@ -29,3 +29,8 @@ At this point you should be able to run build or tests:
  - `./build.sh` - could error due to rsync
  - `./test.sh node` (note that browser-based tests  need some more work because a ui app can't yet run in a container. Will need a headless brows)
 
+# go
+the go.cmd will start the container 
+
+# init
+the init.cmd will start the container and initialize - clone the angular repo and run yarn inside it
