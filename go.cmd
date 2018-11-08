@@ -1,1 +1,1 @@
-docker run --rm -ti  -v %~dp0angular:/angular --name ng_contrib  node:8 bash
+docker run --rm -ti  -v %~dp0angular:/angular --name ng_contrib node:10
